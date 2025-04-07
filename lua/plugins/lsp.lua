@@ -68,15 +68,20 @@ return {
             require('mason-lspconfig').setup({
                 -- See https://github.com/williamboman/mason-lspconfig.nvim?tab=readme-ov-file#available-lsp-servers
                 ensure_installed = {
+                    'bashls',           -- bash
                     'jsonls',           -- json
                     'lua_ls',           -- lua
                     'marksman',         -- markdown
                     'pylsp',            -- python
                     'rust_analyzer',    -- rust
                     'texlab',           -- latex
+                    'lemminx',          -- xml
                 },
                 handlers = {
                     lsp_zero.default_setup,
+                    bashls = function()
+                        require('lspconfig').bashls.setup({})
+                    end,
                     lua_ls = function()
                         local lua_opts = lsp_zero.nvim_lua_ls()
                         require('lspconfig').lua_ls.setup(lua_opts)

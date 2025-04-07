@@ -1,5 +1,5 @@
 return {
-	'nvim-lualine/lualine.nvim',
+    'nvim-lualine/lualine.nvim',
     event = { 'BufReadPre', 'BufNewFile' },
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
